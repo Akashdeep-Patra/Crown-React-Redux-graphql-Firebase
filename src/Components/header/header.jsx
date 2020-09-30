@@ -11,6 +11,9 @@ export default (props) => (
       <Link className="option" to="/shop">
         Shop
       </Link>
+      <Link className="option" to="/signin">
+        Signin
+      </Link>
       <Link className="option" to="/contact">
         Contact
       </Link>
