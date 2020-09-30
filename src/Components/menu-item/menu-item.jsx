@@ -17,4 +17,6 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match }) => (
     </div>
   </div>
 );
+
+// this is an example of HOC or higher order components
 export default withRouter(MenuItem);
