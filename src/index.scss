@@ -1,8 +1,11 @@
-body{
-  font-family: 'Lexend Peta',"Open Sans Condensed", sans-serif;
+body {
+  font-family: "Lexend Peta", "Open Sans Condensed", sans-serif;
   padding: 5px 60px;
 }
-a{
+a {
   text-decoration: none;
   color: black;
+}
+* {
+  box-sizing: border-box;
 }

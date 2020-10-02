@@ -5,19 +5,36 @@ import ShopPage from "./Pages/shop/shop.component";
 import { Switch, Route } from "react-router-dom";
 import Header from "./Components/header/header";
 import SignInandSignUp from "./Pages/sign-in-and-sign-up/sign-in-and-sign-up";
-import { auth } from "../src/firebase/firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+} from "../src/firebase/firebase.utils";
 export default class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      currentUser: null
+      currentUser: null,
     };
   }
   unsubscribeAuth = null;
   componentDidMount() {
-    this.unsubscribeAuth = auth.onAuthStateChanged((user) => {
-      this.setState({ currentUser: user });
-      console.log(user);
+    this.unsubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+      //   console.log(user);
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          this.setState(
+            {
+              currentUser: { id: snapShot.id, ...snapShot.data() },
+            },
+            () => {
+            //   console.log(new Date(this.state.currentUser.createdAt));
+            // console.log(this.state.currentUser.createdAt.toDate())
+            }
+          );
+        });
+      }
+      this.setState({ currentUser: userAuth });
     });
   }
 

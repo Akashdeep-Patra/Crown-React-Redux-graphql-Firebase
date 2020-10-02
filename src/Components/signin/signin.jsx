@@ -8,7 +8,7 @@ export default class SignIn extends React.Component {
     super();
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
   }
   handleSubmit = (event) => {
@@ -41,10 +41,12 @@ export default class SignIn extends React.Component {
             value={this.state.password}
             required
           />
-          <CustomButton type="submit"> Sign In</CustomButton>
-          <CustomButton isGoogleSignIn={true} onClick={signInWithGoogle}>
-            Sign In with Google
-          </CustomButton>
+          <div className="buttons">
+            <CustomButton type="submit"> Sign In</CustomButton>
+            <CustomButton isGoogleSignIn={true} onClick={signInWithGoogle}>
+              With Google
+            </CustomButton>
+          </div>
         </form>
       </div>
     );

@@ -10,19 +10,19 @@ export default ({ currentUser }) => (
     </Link>
     <div className="options">
       <Link className="option" to="/shop">
-        Shop
+        SHOP
       </Link>
       {currentUser ? (
-        <div className="option" onClick={() => auth.signOut()}>
-          Sign out
-        </div>
+        <Link className="option" to="/" onClick={() => auth.signOut()}>
+          SIGNOUT
+        </Link>
       ) : (
         <Link className="option" to="/signin">
-          Sign In
+          SIGNIN
         </Link>
       )}
       <Link className="option" to="/contact">
-        Contact
+        CONTACT
       </Link>
     </div>
   </div>
