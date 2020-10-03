@@ -5,36 +5,27 @@ import ShopPage from "./Pages/shop/shop.component";
 import { Switch, Route } from "react-router-dom";
 import Header from "./Components/header/header";
 import SignInandSignUp from "./Pages/sign-in-and-sign-up/sign-in-and-sign-up";
+import { connect } from "react-redux";
+import { setCurrentUser } from "./redux/user/user.actions";
 import {
   auth,
   createUserProfileDocument,
 } from "../src/firebase/firebase.utils";
-export default class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentUser: null,
-    };
-  }
+class App extends React.Component {
   unsubscribeAuth = null;
   componentDidMount() {
+    const { setCurrentUser } = this.props;
     this.unsubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
-      //   console.log(user);
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
         userRef.onSnapshot((snapShot) => {
-          this.setState(
-            {
-              currentUser: { id: snapShot.id, ...snapShot.data() },
-            },
-            () => {
-            //   console.log(new Date(this.state.currentUser.createdAt));
-            // console.log(this.state.currentUser.createdAt.toDate())
-            }
-          );
+          setCurrentUser({
+            id: snapShot.id,
+            ...snapShot.data(),
+          });
         });
       }
-      this.setState({ currentUser: userAuth });
+      setCurrentUser(userAuth);
     });
   }
 
@@ -45,7 +36,7 @@ export default class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <Header currentUser={this.state.currentUser} />
+        <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
@@ -55,3 +46,9 @@ export default class App extends React.Component {
     );
   }
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  setCurrentUser: (user) => dispatch(setCurrentUser(user)),
+});
+
+export default connect(null, mapDispatchToProps)(App);
