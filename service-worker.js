@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Crown-React-Redux-graphql-Firebase/precache-manifest.de89acae36586d2008447429d733e892.js"
+  "/Crown-React-Redux-graphql-Firebase/precache-manifest.0cc3036238ebb5815cd18f58d043191e.js"
 );
 
 self.addEventListener('message', (event) => {
