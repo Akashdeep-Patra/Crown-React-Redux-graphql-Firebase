@@ -1,5 +1,6 @@
 {
   "name": "crown",
+  "homepage": "http://Akashdeep-Patra.github.io/Crown-React-Redux-graphql-Firebase",
   "version": "1.0.0",
   "description": "",
   "keywords": [],
@@ -25,7 +26,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "browserslist": [
     ">0.2%",
