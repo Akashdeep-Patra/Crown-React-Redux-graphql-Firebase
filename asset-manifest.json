@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Crown-React-Redux-graphql-Firebase/static/css/main.0ea21c03.chunk.css",
+    "main.js": "/Crown-React-Redux-graphql-Firebase/static/js/main.5fb2b0f4.chunk.js",
+    "main.js.map": "/Crown-React-Redux-graphql-Firebase/static/js/main.5fb2b0f4.chunk.js.map",
+    "runtime-main.js": "/Crown-React-Redux-graphql-Firebase/static/js/runtime-main.2ee4ba97.js",
+    "runtime-main.js.map": "/Crown-React-Redux-graphql-Firebase/static/js/runtime-main.2ee4ba97.js.map",
+    "static/js/2.28bf11a7.chunk.js": "/Crown-React-Redux-graphql-Firebase/static/js/2.28bf11a7.chunk.js",
+    "static/js/2.28bf11a7.chunk.js.map": "/Crown-React-Redux-graphql-Firebase/static/js/2.28bf11a7.chunk.js.map",
+    "index.html": "/Crown-React-Redux-graphql-Firebase/index.html",
+    "precache-manifest.de89acae36586d2008447429d733e892.js": "/Crown-React-Redux-graphql-Firebase/precache-manifest.de89acae36586d2008447429d733e892.js",
+    "service-worker.js": "/Crown-React-Redux-graphql-Firebase/service-worker.js",
+    "static/css/main.0ea21c03.chunk.css.map": "/Crown-React-Redux-graphql-Firebase/static/css/main.0ea21c03.chunk.css.map",
+    "static/js/2.28bf11a7.chunk.js.LICENSE.txt": "/Crown-React-Redux-graphql-Firebase/static/js/2.28bf11a7.chunk.js.LICENSE.txt",
+    "static/media/crown.ed28accb.svg": "/Crown-React-Redux-graphql-Firebase/static/media/crown.ed28accb.svg",
+    "static/media/shopping-bag.30f07071.svg": "/Crown-React-Redux-graphql-Firebase/static/media/shopping-bag.30f07071.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2ee4ba97.js",
+    "static/js/2.28bf11a7.chunk.js",
+    "static/css/main.0ea21c03.chunk.css",
+    "static/js/main.5fb2b0f4.chunk.js"
+  ]
+}
