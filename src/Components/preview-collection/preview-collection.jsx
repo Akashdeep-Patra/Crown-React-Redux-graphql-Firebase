@@ -6,9 +6,9 @@ export default ({ title, items }) => (
     <h1>{title.toUpperCase()}</h1>
     <div className="preview">
       {items
-        .filter((it, index) => index < 4)
-        .map(({ id, ...other }) => (
-          <CollectionItem key={id} {...other} />
+        .filter((item, index) => index < 4)
+        .map((item) => (
+          <CollectionItem className="grid-item" key={item.id} item={item} />
         ))}
     </div>
   </div>

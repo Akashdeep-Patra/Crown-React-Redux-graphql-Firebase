@@ -14,7 +14,16 @@
   border: 1px solid black;
   cursor: pointer;
   border-radius: 6px;
-
+  display: flex;
+  justify-content: center;
+  &.google-button {
+    background-color: #4285f4;
+    border: 1px solid #4285f4;
+    color: white;
+    &:hover {
+      border: 1px solid #4285f4;
+    }
+  }
   &:hover {
     background-color: white;
     color: black;
@@ -22,12 +31,13 @@
     transform: translate(0, -10%);
     transition: all 0.2s;
   }
-}
-.google-button {
-  background-color: #4285f4;
-  border: 1px solid #4285f4;
-  color: white;
-  &:hover {
-    border: 1px solid #4285f4;
+  &.inverted {
+    background-color: white;
+    color: black;
+    border: none;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
   }
 }
