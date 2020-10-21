@@ -19,6 +19,11 @@
     flex-direction: column;
     overflow-y: scroll;
   }
+  .empty-message {
+    font-size: 14px;
+    margin: 40% auto;
+    color: gray;
+  }
 
   button {
     margin-top: auto;
