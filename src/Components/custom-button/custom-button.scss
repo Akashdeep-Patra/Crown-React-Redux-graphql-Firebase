@@ -16,6 +16,14 @@
   border-radius: 6px;
   display: flex;
   justify-content: center;
+
+  &:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    transform: translate(0, -10%);
+    transition: all 0.2s;
+  }
   &.google-button {
     background-color: #4285f4;
     border: 1px solid #4285f4;
@@ -23,13 +31,6 @@
     &:hover {
       border: 1px solid #4285f4;
     }
-  }
-  &:hover {
-    background-color: white;
-    color: black;
-    border: 1px solid black;
-    transform: translate(0, -10%);
-    transition: all 0.2s;
   }
   &.inverted {
     background-color: white;
