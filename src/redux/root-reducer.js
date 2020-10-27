@@ -9,7 +9,7 @@ import localStorage from "redux-persist/lib/storage";
 const persistConfig = {
   key: "root",
   storage: localStorage,
-  whiteList: ["cart"],
+  blacklist: ["user", "direcory", "shop"],
 };
 
 const rootreducer = combineReducers({

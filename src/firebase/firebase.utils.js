@@ -52,9 +52,9 @@ export const auth = firebase.auth();
 // for firestore data bse
 export const firestore = firebase.firestore();
 // google oauth
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: "select_account" });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: "select_account" });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export const addCollectionAndDocuments = async (
   collectionKey,
@@ -85,6 +85,16 @@ export const convertCollectionsSnapShotToMap = (collections) => {
     accumulator[collection.title.toLowerCase()] = collection;
     return accumulator;
   }, {});
+};
+
+// this is only to mimmic the pattern where we dont have firebase as backend
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribeAuth = auth.onAuthStateChanged(async (userAuth) => {
+      unsubscribeAuth();
+      resolve(userAuth);
+    }, reject);
+  });
 };
 
 export default firebase;

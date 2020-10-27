@@ -16,6 +16,8 @@ export const fetchCollectionsFaliure = (errorMessage) => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_FALIURE,
   payload: errorMessage,
 });
+
+//this is redux thunk code , now replaced with redux-saga
 export const fetchCollectionsStartAsync = () => {
   return (dispatch) => {
     const collectionRef = firestore.collection("collections");

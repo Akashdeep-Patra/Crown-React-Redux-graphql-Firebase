@@ -27,5 +27,5 @@ export const selectIsCollectionsFetching = createSelector(
 export const selectIsCollectionsLoaded = createSelector(
   [selectShop],
   // !! double bang return flase on every falsy values ES6
-  (shop) => !!shop.collections
+  (shop) => !!!shop.collections
 );
