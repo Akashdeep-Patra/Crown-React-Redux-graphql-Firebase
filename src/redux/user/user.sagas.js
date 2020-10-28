@@ -24,8 +24,8 @@ export function* getSnapshotFromUserAuth(userAuth) {
     yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (error) {
     yield put(signInFaliure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
@@ -34,13 +34,13 @@ export function* signInWithGoogleAsync() {
   try {
     const { user } = yield auth.signInWithPopup(googleProvider);
     yield getSnapshotFromUserAuth(user);
-    yield toaster.notify(<h3>SUCCESSFULLY SIGNED IN WITH GOOGLE</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>SUCCESSFULLY SIGNED IN WITH GOOGLE</h5>, {
+      duration: 5000,
     });
   } catch (error) {
     yield put(signInFaliure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
@@ -49,11 +49,11 @@ export function* signInWithEmailAsync({ payload: { email, password } }) {
   try {
     const { user } = yield auth.signInWithEmailAndPassword(email, password);
     yield getSnapshotFromUserAuth(user);
-    yield toaster.notify(<h3>SUCCESSFULLY SIGNED IN</h3>, { duration: 3000 });
+    yield toaster.notify(<h5>SUCCESSFULLY SIGNED IN</h5>, { duration: 5000 });
   } catch (error) {
     yield put(signInFaliure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
@@ -66,10 +66,11 @@ export function* isUserAuthenticated() {
       return;
     }
     yield getSnapshotFromUserAuth(userAuth);
+    yield toaster.notify(<h5>SESSION RETAINED</h5>, { duration: 5000 });
   } catch (error) {
     yield put(signInFaliure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
@@ -90,11 +91,11 @@ export function* signOutAsync() {
   try {
     yield auth.signOut();
     yield put(signOutSuccess());
-    yield toaster.notify(<h3>SUCCESSFULLY SIGNED OUT</h3>, { duration: 3000 });
+    yield toaster.notify(<h5>SUCCESSFULLY SIGNED OUT</h5>, { duration: 5000 });
   } catch (error) {
     yield put(signOutFaliure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
@@ -107,11 +108,12 @@ export function* signUpAsync({ payload: { displayName, email, password } }) {
     const { user } = yield auth.createUserWithEmailAndPassword(email, password);
     yield createUserProfileDocument(user, { displayName });
     yield put(signUpSuccess());
-    yield toaster.notify(<h3>SUCCESSFULLY SIGNED UP</h3>, { duration: 3000 });
+    yield toaster.notify(<h5>SUCCESSFULLY SIGNED UP</h5>, { duration: 5000 });
+    yield getSnapshotFromUserAuth(user);
   } catch (error) {
     yield put(signUpFalure(error));
-    yield toaster.notify(<h3>{error.message}</h3>, {
-      duration: 3000,
+    yield toaster.notify(<h5>{error.message}</h5>, {
+      duration: 5000,
     });
   }
 }
