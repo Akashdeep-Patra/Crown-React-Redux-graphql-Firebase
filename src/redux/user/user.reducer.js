@@ -3,6 +3,7 @@ const INITIAL_STATE = {
   currentUser: null,
   signInError: null,
   signOutError: null,
+  signUpError: null,
 };
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -27,6 +28,16 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         signOutError: action.payload,
+      };
+    case UserActionType.SIGNUP_SUCCESS:
+      return {
+        ...state,
+        signUpError: null,
+      };
+    case UserActionType.SIGNUP_FALIURE:
+      return {
+        ...state,
+        signUpError: action.payload,
       };
     default:
       return state;

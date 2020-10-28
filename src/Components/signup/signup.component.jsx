@@ -1,11 +1,14 @@
 import React from "react";
 import "./signup.component.scss";
-
+import { signUpStart } from "../../redux/user/user.actions";
+import { selectSignUpError } from "../../redux/user/user.selectors";
+import { createStructuredSelector } from "reselect";
+import { connect } from "react-redux";
 import FormInput from "../form-input/form-input";
 import CustomButton from "../custom-button/custom-button";
-import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
+// import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
 
-export default class SignUp extends React.Component {
+class SignUp extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -22,27 +25,14 @@ export default class SignUp extends React.Component {
       alert("Passwords don't match");
       return;
     }
-    try {
-      const { user } = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-      await createUserProfileDocument(user, { displayName });
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-    } catch (error) {
-      console.log("Something went wrong");
-      console.log(error);
-    }
+    const { signUpStart } = this.props;
+    signUpStart({ displayName, email, password, confirmPassword });
   };
   handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   };
+
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
@@ -88,3 +78,13 @@ export default class SignUp extends React.Component {
     );
   }
 }
+
+const mapStateToProps = createStructuredSelector({
+  signUpError: selectSignUpError,
+});
+
+const mapDispatchToProps = (dispatch) => ({
+  signUpStart: (object) => dispatch(signUpStart(object)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUp);

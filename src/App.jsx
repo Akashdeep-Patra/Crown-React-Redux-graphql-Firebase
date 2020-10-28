@@ -8,11 +8,6 @@ import Header from "./Components/header/header";
 import SignInandSignUp from "./Pages/sign-in-and-sign-up/sign-in-and-sign-up";
 import { connect } from "react-redux";
 import { checkUserSession } from "./redux/user/user.actions";
-// import {
-//   auth,
-//   createUserProfileDocument,
-// } from "../src/firebase/firebase.utils";
-
 import { selectCurrentUser } from "./redux/user/user.selectors";
 import { createStructuredSelector } from "reselect";
 
