@@ -1,6 +1,10 @@
 body {
   font-family: "Lexend Peta", "Open Sans Condensed", sans-serif;
   padding: 5px 60px;
+  @media screen and (max-width: 800px) {
+    padding: 10px;
+    // font-size: 15px;
+  }
 }
 a {
   text-decoration: none;

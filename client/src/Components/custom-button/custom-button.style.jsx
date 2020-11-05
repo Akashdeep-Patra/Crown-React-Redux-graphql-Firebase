@@ -7,6 +7,12 @@ const InvertedButtonStles = css`
   &:hover {
     background-color: black;
     color: white;
+    @media screen and (max-width: 800px) {
+      transition: unset;
+      background-color: white;
+      color: black;
+      transform: unset;
+    }
   }
 `;
 

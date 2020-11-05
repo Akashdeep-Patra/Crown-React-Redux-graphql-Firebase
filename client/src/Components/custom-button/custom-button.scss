@@ -23,6 +23,10 @@
     border: 1px solid black;
     transform: translate(0, -10%);
     transition: all 0.2s;
+    @media screen and (max-width: 800px) {
+      transition: unset;
+      transform: unset;
+    }
   }
   &.google-button {
     background-color: #4285f4;
@@ -39,6 +43,11 @@
     &:hover {
       background-color: black;
       color: white;
+      @media screen and (max-width: 800px) {
+        transition: unset;
+        background-color: unset;
+        transform: unset;
+      }
     }
   }
 }

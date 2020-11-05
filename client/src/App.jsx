@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "./index.scss";
+import "./App.scss";
 import HomePage from "./Pages/homepage/homepage.component";
 import ShopPage from "./Pages/shop/shop.component";
 import CheckOutPage from "./Pages/checkout/CheckOut.component";

@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import "./index.scss";
 import { BrowserRouter } from "react-router-dom";
 import "toasted-notes/src/styles.css";
 import App from "./App";
