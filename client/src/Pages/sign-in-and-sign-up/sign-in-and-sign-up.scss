@@ -1,8 +1,14 @@
 .sign-in-and-sign-up {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 5rem;
+  display: flex;
+  justify-content: space-between;
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 .column {
   text-align: end;
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
 }
