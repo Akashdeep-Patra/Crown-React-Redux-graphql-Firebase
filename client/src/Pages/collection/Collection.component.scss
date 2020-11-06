@@ -10,7 +10,6 @@
   .items {
     display: grid;
     grid-template-columns: repeat(4, minmax(200px, 1fr));
-    grid-gap: 1%;
     justify-items: center;
     align-items: center;
     justify-content: center;
