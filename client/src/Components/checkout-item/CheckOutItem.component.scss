@@ -6,7 +6,11 @@
   padding: 15px 0;
   font-size: 20px;
   align-items: center;
-
+  @media screen and (max-width: 800px) {
+    .name {
+      font-size: 12px;
+    }
+  }
   .image-container {
     width: 23%;
     padding-right: 15px;
