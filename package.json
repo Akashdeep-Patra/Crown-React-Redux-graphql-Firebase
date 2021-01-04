@@ -12,7 +12,7 @@
     "server": "nodemon server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run client\" \"npm run server\" ",
     "start": "node server.js",
-    "build": "cd  client  && npm run build",
+    "build": "npm i --prefix ./client && npm run --prefix ./client build  && npm i",
     "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
